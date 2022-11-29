@@ -14,3 +14,23 @@ UseCase:02		Share Daily reports
 3. Share document with specific user or group.
 4. Arrange document with name, category or date.
 
+Use case:03		Schedule Tasks
+1. Schedule personal task or group task. (Task already on assigned time then show that task.)
+2. Assign task to specific user.(valid user), Assigned user can accept or reject a task.
+3. View Progress report.
+4. Update progress report (if task is assigned to you). 
+5. Daily reminder before 7 days or 3 days or 24 hour to avoid panic monster.
+
+Use case:04		Schedule Meetings
+1. Schedule meetings by providing time(If meeting on same time then show meeting details.)
+2. Add details of meeting(like venue, timing, topic etc)
+3. Reminder for meeting is set.
+4. Notify before 24 hours of meeting time.
+5. Cancel meeting and notify participants.
+6. Update meeting details and notify participants.
+
+
+
+
+
+
