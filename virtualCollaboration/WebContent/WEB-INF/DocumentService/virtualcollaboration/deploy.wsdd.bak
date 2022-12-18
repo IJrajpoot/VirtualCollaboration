@@ -1,0 +1,37 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from DocumentService WSDL service -->
+
+  <service name="Document" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://virtualcollaboration"/>
+      <parameter name="wsdlServiceElement" value="DocumentService"/>
+      <parameter name="schemaQualified" value="http://virtualcollaboration"/>
+      <parameter name="wsdlServicePort" value="Document"/>
+      <parameter name="className" value="virtualcollaboration.DocumentSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Document"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="seeDocument" qname="operNS:seeDocument" xmlns:operNS="http://virtualcollaboration" returnQName="retNS:seeDocumentReturn" xmlns:retNS="http://virtualcollaboration" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:DocID" xmlns:pns="http://virtualcollaboration" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="delAnnouncementt" qname="operNS:delAnnouncementt" xmlns:operNS="http://virtualcollaboration" returnQName="retNS:delAnnouncementtReturn" xmlns:retNS="http://virtualcollaboration" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:docID" xmlns:pns="http://virtualcollaboration" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="addDocument" qname="operNS:addDocument" xmlns:operNS="http://virtualcollaboration" returnQName="retNS:addDocumentReturn" xmlns:retNS="http://virtualcollaboration" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:DocName" xmlns:pns="http://virtualcollaboration" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:DocCategory" xmlns:pns="http://virtualcollaboration" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:groupID" xmlns:pns="http://virtualcollaboration" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="seeDocument addDocument delAnnouncementt"/>
+
+  </service>
+</deployment>
