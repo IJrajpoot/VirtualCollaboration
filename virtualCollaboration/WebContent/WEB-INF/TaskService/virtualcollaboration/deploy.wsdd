@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from TaskService WSDL service -->
+
+  <service name="Task" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://virtualcollaboration"/>
+      <parameter name="wsdlServiceElement" value="TaskService"/>
+      <parameter name="schemaQualified" value="http://virtualcollaboration"/>
+      <parameter name="wsdlServicePort" value="Task"/>
+      <parameter name="className" value="virtualcollaboration.Task"/>
+      <parameter name="wsdlPortType" value="Task"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="seeTask" qname="operNS:seeTask" returnQName="retNS:seeTaskReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:taskID" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="delTask" qname="operNS:delTask" returnQName="retNS:delTaskReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:taskID" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="addTask" qname="operNS:addTask" returnQName="retNS:addTaskReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:task" type="tns:string"/>
+        <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:date" type="tns:string"/>
+        <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:time" type="tns:string"/>
+      </operation>
+      <parameter name="allowedMethods" value="delTask seeTask addTask"/>
+
+  </service>
+</deployment>
