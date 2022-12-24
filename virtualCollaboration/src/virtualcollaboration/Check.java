@@ -3,8 +3,12 @@ package virtualcollaboration;
 public class Check {
 
 	public static void main(String[] args) {
-		Document a=new Document();
-		System.out.println(a.seeDocument(1));
+		Announcement a=new Announcement();
+		String[] input= {"sp21bsse0023@maju.edu.pk"};
+		
+		System.out.println(a.seeAnnouncements(1));
+		
+	
 	}
 
 }
