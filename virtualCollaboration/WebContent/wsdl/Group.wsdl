@@ -20,17 +20,32 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="ViewGroup">
+   <element name="addMembers">
+    <complexType>
+     <sequence>
+      <element name="GroupID" type="xsd:int"/>
+      <element maxOccurs="unbounded" name="users" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addMembersResponse">
+    <complexType>
+     <sequence>
+      <element name="addMembersReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="viewGroup">
     <complexType>
      <sequence>
       <element name="gID" type="xsd:int"/>
      </sequence>
     </complexType>
    </element>
-   <element name="ViewGroupResponse">
+   <element name="viewGroupResponse">
     <complexType>
      <sequence>
-      <element name="ViewGroupReturn" type="xsd:string"/>
+      <element name="viewGroupReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
@@ -45,14 +60,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="ViewGroupRequest">
-
-      <wsdl:part element="impl:ViewGroup" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
    <wsdl:message name="createGroupRequest">
 
       <wsdl:part element="impl:createGroup" name="parameters">
@@ -61,9 +68,33 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="ViewGroupResponse">
+   <wsdl:message name="addMembersResponse">
 
-      <wsdl:part element="impl:ViewGroupResponse" name="parameters">
+      <wsdl:part element="impl:addMembersResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="viewGroupRequest">
+
+      <wsdl:part element="impl:viewGroup" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addMembersRequest">
+
+      <wsdl:part element="impl:addMembers" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="viewGroupResponse">
+
+      <wsdl:part element="impl:viewGroupResponse" name="parameters">
 
       </wsdl:part>
 
@@ -83,13 +114,25 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="ViewGroup">
+      <wsdl:operation name="addMembers">
 
-         <wsdl:input message="impl:ViewGroupRequest" name="ViewGroupRequest">
+         <wsdl:input message="impl:addMembersRequest" name="addMembersRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:ViewGroupResponse" name="ViewGroupResponse">
+         <wsdl:output message="impl:addMembersResponse" name="addMembersResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="viewGroup">
+
+         <wsdl:input message="impl:viewGroupRequest" name="viewGroupRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:viewGroupResponse" name="viewGroupResponse">
 
        </wsdl:output>
 
@@ -119,17 +162,35 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="ViewGroup">
+      <wsdl:operation name="addMembers">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="ViewGroupRequest">
+         <wsdl:input name="addMembersRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="ViewGroupResponse">
+         <wsdl:output name="addMembersResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="viewGroup">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="viewGroupRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="viewGroupResponse">
 
             <wsdlsoap:body use="literal"/>
 

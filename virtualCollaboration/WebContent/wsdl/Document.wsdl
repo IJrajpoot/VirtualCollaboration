@@ -4,17 +4,19 @@
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://virtualcollaboration" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="seeDocument">
+   <element name="addDocument">
     <complexType>
      <sequence>
-      <element name="DocID" type="xsd:int"/>
+      <element name="DocName" type="xsd:string"/>
+      <element name="DocCategory" type="xsd:string"/>
+      <element name="groupID" type="xsd:int"/>
      </sequence>
     </complexType>
    </element>
-   <element name="seeDocumentResponse">
+   <element name="addDocumentResponse">
     <complexType>
      <sequence>
-      <element name="seeDocumentReturn" type="xsd:string"/>
+      <element name="addDocumentReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
@@ -32,32 +34,22 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="addDocument">
+   <element name="seeDocument">
     <complexType>
      <sequence>
-      <element name="DocName" type="xsd:string"/>
-      <element name="DocCategory" type="xsd:string"/>
-      <element name="groupID" type="xsd:int"/>
+      <element name="GroupID" type="xsd:int"/>
      </sequence>
     </complexType>
    </element>
-   <element name="addDocumentResponse">
+   <element name="seeDocumentResponse">
     <complexType>
      <sequence>
-      <element name="addDocumentReturn" type="xsd:string"/>
+      <element maxOccurs="unbounded" name="seeDocumentReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
   </schema>
  </wsdl:types>
-
-   <wsdl:message name="seeDocumentRequest">
-
-      <wsdl:part element="impl:seeDocument" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
 
    <wsdl:message name="delAnnouncementtRequest">
 
@@ -67,9 +59,9 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="seeDocumentResponse">
+   <wsdl:message name="seeDocumentRequest">
 
-      <wsdl:part element="impl:seeDocumentResponse" name="parameters">
+      <wsdl:part element="impl:seeDocument" name="parameters">
 
       </wsdl:part>
 
@@ -78,6 +70,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <wsdl:message name="delAnnouncementtResponse">
 
       <wsdl:part element="impl:delAnnouncementtResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="seeDocumentResponse">
+
+      <wsdl:part element="impl:seeDocumentResponse" name="parameters">
 
       </wsdl:part>
 
@@ -101,13 +101,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="Document">
 
-      <wsdl:operation name="seeDocument">
+      <wsdl:operation name="addDocument">
 
-         <wsdl:input message="impl:seeDocumentRequest" name="seeDocumentRequest">
+         <wsdl:input message="impl:addDocumentRequest" name="addDocumentRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:seeDocumentResponse" name="seeDocumentResponse">
+         <wsdl:output message="impl:addDocumentResponse" name="addDocumentResponse">
 
        </wsdl:output>
 
@@ -125,13 +125,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="addDocument">
+      <wsdl:operation name="seeDocument">
 
-         <wsdl:input message="impl:addDocumentRequest" name="addDocumentRequest">
+         <wsdl:input message="impl:seeDocumentRequest" name="seeDocumentRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:addDocumentResponse" name="addDocumentResponse">
+         <wsdl:output message="impl:seeDocumentResponse" name="seeDocumentResponse">
 
        </wsdl:output>
 
@@ -143,17 +143,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
-      <wsdl:operation name="seeDocument">
+      <wsdl:operation name="addDocument">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="seeDocumentRequest">
+         <wsdl:input name="addDocumentRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="seeDocumentResponse">
+         <wsdl:output name="addDocumentResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -179,17 +179,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="addDocument">
+      <wsdl:operation name="seeDocument">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="addDocumentRequest">
+         <wsdl:input name="seeDocumentRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="addDocumentResponse">
+         <wsdl:output name="seeDocumentResponse">
 
             <wsdlsoap:body use="literal"/>
 

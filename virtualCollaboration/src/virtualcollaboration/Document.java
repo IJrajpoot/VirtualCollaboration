@@ -2,29 +2,39 @@ package virtualcollaboration;
 import java.sql.*;
 import java.util.ArrayList;
 public class Document {
-	public String seeDocument(int DocID) {
+	
+	public String[] seeDocument(int GroupID) {
 		
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con =
 			DriverManager.getConnection("jdbc:mysql://localhost:3306/virtual_collaboration","root","");
 			Statement stmt=con.createStatement();
-			ResultSet rs=stmt.executeQuery("SELECT * FROM document WHERE DocID="+DocID);
-
-			String Doc=null;
+			ResultSet rs=stmt.executeQuery("SELECT * FROM document WHERE groupID="+GroupID);
+			
+			int i=0,size=0;
+			while(rs.next())
+			{
+			size++;
+			}
+			
+			rs.beforeFirst();
+			String[] Doc=new String[size];
 			
 			while(rs.next())
 			{
-			Doc="Name: " + rs.getString(2) + " Category: " + rs.getString(3) + " Date: "
+			Doc[i]="Name: " + rs.getString(2) + " Category: " + rs.getString(3) + " Date: "
 			+ rs.getString(4);
 				
+				i++;
 			
 			}
 			con.close();
 				return Doc;
 			} catch(Exception e)
 			{
-				return e.getMessage();
+				String[] ex= {e.getMessage()};
+				return ex;
 			}
 	}
 	
@@ -47,7 +57,7 @@ public String addDocument(String DocName,String DocCategory,int groupID) {
 			}
 	}
 	
-	public String delAnnouncementt(int docID) {
+	public String delDocument(int docID) {
 	
 		try{
 		Class.forName("com.mysql.jdbc.Driver");
@@ -62,6 +72,48 @@ public String addDocument(String DocName,String DocCategory,int groupID) {
 		} catch(Exception e)
 		{
 			return e.getMessage();
+		}
+	}
+	
+	public String[] searchDocument(String search) {
+		
+		try{
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection con =
+		DriverManager.getConnection("jdbc:mysql://localhost:3306/virtual_collaboration","root","");
+		Statement stmt=con.createStatement();
+		ResultSet rs=stmt.executeQuery("SELECT * FROM document WHERE name='"+search+"' or category='"+search+"' or date='"+search+"';");
+
+		int i=0,size=0;
+		while(rs.next())
+		{
+		size++;
+		}
+		
+			if(size==0) {
+				String[] ex= {"No Document Found"};
+				return ex;
+			}
+		
+		rs.beforeFirst();
+		String[] Doc=new String[size];
+	
+		while(rs.next())
+		{
+		Doc[i]="Name: " + rs.getString(2) + " Category: " + rs.getString(3) + " Date: "
+		+ rs.getString(4);
+			
+			i++;
+		
+		}
+		con.close();
+			return Doc;
+		
+		} catch(Exception e)
+		{
+			String[] ex= {e.getMessage()};
+			
+			return ex;
 		}
 	}
 }

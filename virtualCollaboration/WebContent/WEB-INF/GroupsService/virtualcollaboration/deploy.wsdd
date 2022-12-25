@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
 
-  <!-- Services from GroupService WSDL service -->
+  <!-- Services from GroupsService WSDL service -->
 
-  <service name="Group" provider="java:RPC" style="wrapped" use="literal">
+  <service name="Groups" provider="java:RPC" style="wrapped" use="literal">
       <parameter name="wsdlTargetNamespace" value="http://virtualcollaboration"/>
-      <parameter name="wsdlServiceElement" value="GroupService"/>
+      <parameter name="wsdlServiceElement" value="GroupsService"/>
       <parameter name="schemaQualified" value="http://virtualcollaboration"/>
-      <parameter name="wsdlServicePort" value="Group"/>
-      <parameter name="className" value="virtualcollaboration.Group"/>
-      <parameter name="wsdlPortType" value="Group"/>
+      <parameter name="wsdlServicePort" value="Groups"/>
+      <parameter name="className" value="virtualcollaboration.Groups"/>
+      <parameter name="wsdlPortType" value="Groups"/>
       <parameter name="typeMappingVersion" value="1.2"/>
       <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="createGroup" qname="operNS:createGroup" returnQName="retNS:createGroupReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Name" type="tns:string"/>
         <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Purpose" type="tns:string"/>
         <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:members" type="tns:int"/>
       </operation>
-      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="addMembers" qname="operNS:addMembers" returnQName="retNS:addMembersReturn" returnType="rtns:string" soapAction="">
+      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="addMembers" qname="operNS:AddMembers" returnQName="retNS:AddMembersReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:GroupID" type="tns:int"/>
         <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:users" type="tns:string"/>
       </operation>
-      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="viewGroup" qname="operNS:viewGroup" returnQName="retNS:viewGroupReturn" returnType="rtns:string" soapAction="">
+      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="viewGroup" qname="operNS:ViewGroup" returnQName="retNS:ViewGroupReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:gID" type="tns:int"/>
       </operation>
       <parameter name="allowedMethods" value="viewGroup createGroup addMembers"/>

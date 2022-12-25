@@ -3,7 +3,7 @@ import java.sql.*;
 public class Group {
 	
 	
-		public String ViewGroup(int gID) {
+		public String viewGroup(int gID) {
 
 			try{
 				Class.forName("com.mysql.jdbc.Driver");
@@ -47,10 +47,9 @@ public class Group {
 				{
 					return e.getMessage();
 				}
-
 		}
 		
-		public String AddMembers(int GroupID,String[] users) {
+		public String addMembers(int GroupID,String[] users) {
 			
 			try{
 				Class.forName("com.mysql.jdbc.Driver");
@@ -113,11 +112,7 @@ public class Group {
 				else { 
 					return "Failed!";
 				}
-				
-				
-				
-				
-				
+					
 				} catch(Exception e)
 				{
 					return e.getMessage();
