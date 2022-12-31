@@ -100,7 +100,7 @@ public class Task {
 			}
 	}
 	
-	public void userApproval(int UserID) {
+	public String userApproval(int UserID) {
 		
 
 		try{
@@ -109,17 +109,21 @@ public class Task {
 			DriverManager.getConnection("jdbc:mysql://localhost:3306/virtual_collaboration","root","");
 			Statement stmt=con.createStatement();
 			ResultSet rs=stmt.executeQuery("SELECT * from assignedtasks where Status='Pending' and UserID="+UserID);
-			rs.next();
-			int Required=rs.getInt(1);
-			String query1="";
-			stmt.executeUpdate(query1);
+			boolean row=rs.next();
+			String Required="Name: "+rs.getString(2)+"   Description: "+rs.getString(3)+"   Date: "
+			+rs.getString(4)+"   Time:"+rs.getString(5);
 			
 			con.close();
-			//	return "Command Sent to User";
+			if(row) {
+				return Required;
+			}
+			else {
+				return "No More Taks";
+			}
+			
 			} catch(Exception e)
 			{
-				//return e.getMessage();
+				return e.getMessage();
 			}
-		
 	}
 }

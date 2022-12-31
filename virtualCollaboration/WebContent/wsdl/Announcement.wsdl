@@ -4,20 +4,6 @@
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://virtualcollaboration" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="delAnnouncementt">
-    <complexType>
-     <sequence>
-      <element name="announceID" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="delAnnouncementtResponse">
-    <complexType>
-     <sequence>
-      <element name="delAnnouncementtReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
    <element name="addAnnouncementt">
     <complexType>
      <sequence>
@@ -30,6 +16,20 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     <complexType>
      <sequence>
       <element name="addAnnouncementtReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="delAnnouncementt">
+    <complexType>
+     <sequence>
+      <element name="announceID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="delAnnouncementtResponse">
+    <complexType>
+     <sequence>
+      <element name="delAnnouncementtReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
@@ -50,17 +50,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
   </schema>
  </wsdl:types>
 
-   <wsdl:message name="delAnnouncementtRequest">
+   <wsdl:message name="addAnnouncementtResponse">
 
-      <wsdl:part element="impl:delAnnouncementt" name="parameters">
+      <wsdl:part element="impl:addAnnouncementtResponse" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="addAnnouncementtResponse">
+   <wsdl:message name="delAnnouncementtRequest">
 
-      <wsdl:part element="impl:addAnnouncementtResponse" name="parameters">
+      <wsdl:part element="impl:delAnnouncementt" name="parameters">
 
       </wsdl:part>
 
@@ -100,18 +100,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="Announcement">
 
-      <wsdl:operation name="delAnnouncementt">
-
-         <wsdl:input message="impl:delAnnouncementtRequest" name="delAnnouncementtRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:delAnnouncementtResponse" name="delAnnouncementtResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
       <wsdl:operation name="addAnnouncementt">
 
          <wsdl:input message="impl:addAnnouncementtRequest" name="addAnnouncementtRequest">
@@ -119,6 +107,18 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:addAnnouncementtResponse" name="addAnnouncementtResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="delAnnouncementt">
+
+         <wsdl:input message="impl:delAnnouncementtRequest" name="delAnnouncementtRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:delAnnouncementtResponse" name="delAnnouncementtResponse">
 
        </wsdl:output>
 
@@ -142,24 +142,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
-      <wsdl:operation name="delAnnouncementt">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="delAnnouncementtRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="delAnnouncementtResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
       <wsdl:operation name="addAnnouncementt">
 
          <wsdlsoap:operation soapAction=""/>
@@ -171,6 +153,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="addAnnouncementtResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="delAnnouncementt">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="delAnnouncementtRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="delAnnouncementtResponse">
 
             <wsdlsoap:body use="literal"/>
 
