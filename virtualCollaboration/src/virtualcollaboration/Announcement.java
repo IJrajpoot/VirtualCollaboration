@@ -7,7 +7,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 public class Announcement {
-	public String seeAnnouncements(int groupID) {
+	
+	
+	public String[] seeAnnouncements(int groupID) {
 		
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
@@ -15,21 +17,35 @@ public class Announcement {
 			DriverManager.getConnection("jdbc:mysql://localhost:3306/virtual_collaboration","root","");
 			Statement stmt=con.createStatement();
 			ResultSet rs=stmt.executeQuery("SELECT * from announcement where GroupID="+groupID);
-			String Announce=null;
-			//ArrayList<String> Announcements = new ArrayList<String>();
+			
+			
+			int count=0;
 			while(rs.next())
 			{
+				count++;
+				
+			}
 			
-				Announce="Announcement: " + rs.getString(2) + "Announcement Time: " + rs.getString(3) + " GroupID: "
-			+ rs.getString(4);
+			String[] Announce=new String[count];
+			int i=0;
+			ResultSet rs1=stmt.executeQuery("SELECT * from announcement where GroupID="+groupID);
+			while(rs1.next())
+			{
+			
+				Announce[i]="Announcement: " + rs1.getString(2) + "Announcement Time: " + rs1.getString(3) + " GroupID: "
+			+ rs1.getString(4);
+				
+				i++;
+				
 			}
 			con.close();
 			return Announce;
 			
 			} catch(Exception e)
 			{
-				
-				return e.getMessage();
+				String[] ex=new String[1];
+				ex[0]=e.getMessage();
+				return ex;
 			}
 		
 	}

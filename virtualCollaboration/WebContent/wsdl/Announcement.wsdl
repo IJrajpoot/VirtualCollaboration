@@ -4,17 +4,18 @@
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://virtualcollaboration" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="seeAnnouncements">
+   <element name="addAnnouncementt">
     <complexType>
      <sequence>
+      <element name="Announcement" type="xsd:string"/>
       <element name="groupID" type="xsd:int"/>
      </sequence>
     </complexType>
    </element>
-   <element name="seeAnnouncementsResponse">
+   <element name="addAnnouncementtResponse">
     <complexType>
      <sequence>
-      <element name="seeAnnouncementsReturn" type="xsd:string"/>
+      <element name="addAnnouncementtReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
@@ -32,35 +33,34 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="addAnnouncementt">
+   <element name="seeAnnouncements">
     <complexType>
      <sequence>
-      <element name="Announcement" type="xsd:string"/>
       <element name="groupID" type="xsd:int"/>
      </sequence>
     </complexType>
    </element>
-   <element name="addAnnouncementtResponse">
+   <element name="seeAnnouncementsResponse">
     <complexType>
      <sequence>
-      <element name="addAnnouncementtReturn" type="xsd:string"/>
+      <element maxOccurs="unbounded" name="seeAnnouncementsReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
   </schema>
  </wsdl:types>
 
-   <wsdl:message name="delAnnouncementtRequest">
+   <wsdl:message name="addAnnouncementtResponse">
 
-      <wsdl:part element="impl:delAnnouncementt" name="parameters">
+      <wsdl:part element="impl:addAnnouncementtResponse" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="addAnnouncementtResponse">
+   <wsdl:message name="delAnnouncementtRequest">
 
-      <wsdl:part element="impl:addAnnouncementtResponse" name="parameters">
+      <wsdl:part element="impl:delAnnouncementt" name="parameters">
 
       </wsdl:part>
 
@@ -100,13 +100,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="Announcement">
 
-      <wsdl:operation name="seeAnnouncements">
+      <wsdl:operation name="addAnnouncementt">
 
-         <wsdl:input message="impl:seeAnnouncementsRequest" name="seeAnnouncementsRequest">
+         <wsdl:input message="impl:addAnnouncementtRequest" name="addAnnouncementtRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:seeAnnouncementsResponse" name="seeAnnouncementsResponse">
+         <wsdl:output message="impl:addAnnouncementtResponse" name="addAnnouncementtResponse">
 
        </wsdl:output>
 
@@ -124,13 +124,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="addAnnouncementt">
+      <wsdl:operation name="seeAnnouncements">
 
-         <wsdl:input message="impl:addAnnouncementtRequest" name="addAnnouncementtRequest">
+         <wsdl:input message="impl:seeAnnouncementsRequest" name="seeAnnouncementsRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:addAnnouncementtResponse" name="addAnnouncementtResponse">
+         <wsdl:output message="impl:seeAnnouncementsResponse" name="seeAnnouncementsResponse">
 
        </wsdl:output>
 
@@ -142,17 +142,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
 
-      <wsdl:operation name="seeAnnouncements">
+      <wsdl:operation name="addAnnouncementt">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="seeAnnouncementsRequest">
+         <wsdl:input name="addAnnouncementtRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="seeAnnouncementsResponse">
+         <wsdl:output name="addAnnouncementtResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -178,17 +178,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="addAnnouncementt">
+      <wsdl:operation name="seeAnnouncements">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="addAnnouncementtRequest">
+         <wsdl:input name="seeAnnouncementsRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="addAnnouncementtResponse">
+         <wsdl:output name="seeAnnouncementsResponse">
 
             <wsdlsoap:body use="literal"/>
 

@@ -3,8 +3,13 @@ package virtualcollaboration;
 public class Check {
 
 	public static void main(String[] args) {
-		Document a=new Document();
-		System.out.println(a.seeDocument(1));
+		Task a=new Task();
+		System.out.println(a.userApproval(1));
+		
+	
+		
+		
+	
 	}
 
 }
