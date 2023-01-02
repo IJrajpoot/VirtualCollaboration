@@ -10,17 +10,20 @@
       <parameter name="className" value="virtualcollaboration.Announcement"/>
       <parameter name="wsdlPortType" value="Announcement"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="addAnnouncementt" qname="operNS:addAnnouncementt" returnQName="retNS:addAnnouncementtReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Announcement" type="tns:string"/>
+      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="seeAnnID" qname="operNS:seeAnnID" returnQName="retNS:seeAnnIDReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:groupID" type="tns:int"/>
       </operation>
       <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="delAnnouncementt" qname="operNS:delAnnouncementt" returnQName="retNS:delAnnouncementtReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:announceID" type="tns:int"/>
       </operation>
+      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="addAnnouncementt" qname="operNS:addAnnouncementt" returnQName="retNS:addAnnouncementtReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Announcement" type="tns:string"/>
+        <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:groupID" type="tns:int"/>
+      </operation>
       <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="seeAnnouncements" qname="operNS:seeAnnouncements" returnQName="retNS:seeAnnouncementsReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:groupID" type="tns:int"/>
       </operation>
-      <parameter name="allowedMethods" value="addAnnouncementt seeAnnouncements delAnnouncementt"/>
+      <parameter name="allowedMethods" value="addAnnouncementt seeAnnouncements seeAnnID delAnnouncementt"/>
 
   </service>
 </deployment>

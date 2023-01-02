@@ -19,21 +19,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="delUser">
-    <complexType>
-     <sequence>
-      <element name="password" type="xsd:string"/>
-      <element name="email" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="delUserResponse">
-    <complexType>
-     <sequence>
-      <element name="delUserReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
    <element name="createUser">
     <complexType>
      <sequence>
@@ -47,6 +32,21 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     <complexType>
      <sequence>
       <element name="createUserReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="delUser">
+    <complexType>
+     <sequence>
+      <element name="password" type="xsd:string"/>
+      <element name="email" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="delUserResponse">
+    <complexType>
+     <sequence>
+      <element name="delUserReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
@@ -115,18 +115,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="delUser">
-
-         <wsdl:input message="impl:delUserRequest" name="delUserRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:delUserResponse" name="delUserResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
       <wsdl:operation name="createUser">
 
          <wsdl:input message="impl:createUserRequest" name="createUserRequest">
@@ -134,6 +122,18 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:createUserResponse" name="createUserResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="delUser">
+
+         <wsdl:input message="impl:delUserRequest" name="delUserRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:delUserResponse" name="delUserResponse">
 
        </wsdl:output>
 
@@ -163,24 +163,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="delUser">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="delUserRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="delUserResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
       <wsdl:operation name="createUser">
 
          <wsdlsoap:operation soapAction=""/>
@@ -192,6 +174,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="createUserResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="delUser">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="delUserRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="delUserResponse">
 
             <wsdlsoap:body use="literal"/>
 

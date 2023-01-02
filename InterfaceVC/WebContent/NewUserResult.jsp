@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Insert title here</title>
+<title>Creating New User</title>
 </head>
 <body>
 <%
-Login a = new LoginProxy().getLogin();
+Login a=new LoginProxy().getLogin();
 String name=request.getParameter("name");
 String password=request.getParameter("password");
 String email=request.getParameter("email");
@@ -18,10 +18,9 @@ System.out.println(password);
 System.out.println(email);
 
 
-if(name!=null && password!=null && email!=null){
-	String output=a.createUser(name, password, email);
-	System.out.println(output);
-	response.sendRedirect("Menu.jsp");
+if(name!="" && email!="" && password!=""){
+	a.createUser(name, password, email);
+	response.sendRedirect("Home.jsp");
 }
 else{
 	response.sendRedirect("NewUser.jsp?try=1");

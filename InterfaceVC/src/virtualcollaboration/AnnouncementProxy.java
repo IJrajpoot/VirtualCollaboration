@@ -44,16 +44,22 @@ public class AnnouncementProxy implements virtualcollaboration.Announcement {
     return announcement;
   }
   
-  public java.lang.String addAnnouncementt(java.lang.String announcement0, int groupID) throws java.rmi.RemoteException{
+  public java.lang.String[] seeAnnID(int groupID) throws java.rmi.RemoteException{
     if (announcement == null)
       _initAnnouncementProxy();
-    return announcement.addAnnouncementt(announcement0, groupID);
+    return announcement.seeAnnID(groupID);
   }
   
   public java.lang.String delAnnouncementt(int announceID) throws java.rmi.RemoteException{
     if (announcement == null)
       _initAnnouncementProxy();
     return announcement.delAnnouncementt(announceID);
+  }
+  
+  public java.lang.String addAnnouncementt(java.lang.String announcement0, int groupID) throws java.rmi.RemoteException{
+    if (announcement == null)
+      _initAnnouncementProxy();
+    return announcement.addAnnouncementt(announcement0, groupID);
   }
   
   public java.lang.String[] seeAnnouncements(int groupID) throws java.rmi.RemoteException{

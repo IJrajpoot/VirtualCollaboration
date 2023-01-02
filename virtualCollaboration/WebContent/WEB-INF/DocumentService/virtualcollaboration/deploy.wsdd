@@ -15,13 +15,16 @@
         <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:DocCategory" type="tns:string"/>
         <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:groupID" type="tns:int"/>
       </operation>
-      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="delAnnouncementt" qname="operNS:delAnnouncementt" returnQName="retNS:delAnnouncementtReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:docID" type="tns:int"/>
+      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="searchDocument" qname="operNS:searchDocument" returnQName="retNS:searchDocumentReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:search" type="tns:string"/>
       </operation>
       <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="seeDocument" qname="operNS:seeDocument" returnQName="retNS:seeDocumentReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:GroupID" type="tns:int"/>
       </operation>
-      <parameter name="allowedMethods" value="seeDocument addDocument delAnnouncementt"/>
+      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="delDocument" qname="operNS:delDocument" returnQName="retNS:delDocumentReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:docID" type="tns:int"/>
+      </operation>
+      <parameter name="allowedMethods" value="seeDocument delDocument addDocument searchDocument"/>
 
   </service>
 </deployment>

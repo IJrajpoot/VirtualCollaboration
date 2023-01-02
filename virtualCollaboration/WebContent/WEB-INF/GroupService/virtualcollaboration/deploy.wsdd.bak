@@ -23,16 +23,22 @@
       <operation name="createGroup" qname="operNS:createGroup" xmlns:operNS="http://virtualcollaboration" returnQName="retNS:createGroupReturn" xmlns:retNS="http://virtualcollaboration" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:Name" xmlns:pns="http://virtualcollaboration" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:Purpose" xmlns:pns="http://virtualcollaboration" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:members" xmlns:pns="http://virtualcollaboration" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <operation name="addMembers" qname="operNS:addMembers" xmlns:operNS="http://virtualcollaboration" returnQName="retNS:addMembersReturn" xmlns:retNS="http://virtualcollaboration" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:GroupID" xmlns:pns="http://virtualcollaboration" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:users" xmlns:pns="http://virtualcollaboration" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <operation name="viewGroup" qname="operNS:viewGroup" xmlns:operNS="http://virtualcollaboration" returnQName="retNS:viewGroupReturn" xmlns:retNS="http://virtualcollaboration" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:gID" xmlns:pns="http://virtualcollaboration" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      <operation name="existingGroups" qname="operNS:existingGroups" xmlns:operNS="http://virtualcollaboration" returnQName="retNS:existingGroupsReturn" xmlns:retNS="http://virtualcollaboration" returnType="rtns:GroupDetail" xmlns:rtns="http://virtualcollaboration" soapAction="" >
       </operation>
-      <parameter name="allowedMethods" value="viewGroup createGroup addMembers"/>
+      <parameter name="allowedMethods" value="createGroup addMembers existingGroups"/>
 
+      <typeMapping
+        xmlns:ns="http://virtualcollaboration"
+        qname="ns:GroupDetail"
+        type="java:virtualcollaboration.GroupDetail"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
   </service>
 </deployment>

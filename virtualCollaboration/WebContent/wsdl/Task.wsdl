@@ -1,0 +1,516 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://virtualcollaboration" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://virtualcollaboration" xmlns:intf="http://virtualcollaboration" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://virtualcollaboration" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="addTask">
+    <complexType>
+     <sequence>
+      <element name="task" type="xsd:string"/>
+      <element name="date" type="xsd:string"/>
+      <element name="time" type="xsd:string"/>
+      <element name="GroupID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addTaskResponse">
+    <complexType>
+     <sequence>
+      <element name="addTaskReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addSpTask">
+    <complexType>
+     <sequence>
+      <element name="task" type="xsd:string"/>
+      <element name="date" type="xsd:string"/>
+      <element name="time" type="xsd:string"/>
+      <element name="Email" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addSpTaskResponse">
+    <complexType>
+     <sequence>
+      <element name="addSpTaskReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="delTask">
+    <complexType>
+     <sequence>
+      <element name="taskID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="delTaskResponse">
+    <complexType>
+     <sequence>
+      <element name="delTaskReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="userApproval">
+    <complexType>
+     <sequence>
+      <element name="UserID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="userApprovalResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="userApprovalReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUserID">
+    <complexType>
+     <sequence>
+      <element name="email" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUserIDResponse">
+    <complexType>
+     <sequence>
+      <element name="getUserIDReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTaskID">
+    <complexType>
+     <sequence>
+      <element name="UserID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTaskIDResponse">
+    <complexType>
+     <sequence>
+      <element name="getTaskIDReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="rejectTask">
+    <complexType>
+     <sequence>
+      <element name="taskID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="rejectTaskResponse">
+    <complexType>
+     <sequence>
+      <element name="rejectTaskReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="seeTask">
+    <complexType>
+     <sequence>
+      <element name="groupID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="seeTaskResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="seeTaskReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="delTaskRequest">
+
+      <wsdl:part element="impl:delTask" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="userApprovalResponse">
+
+      <wsdl:part element="impl:userApprovalResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="seeTaskRequest">
+
+      <wsdl:part element="impl:seeTask" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addSpTaskRequest">
+
+      <wsdl:part element="impl:addSpTask" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUserIDResponse">
+
+      <wsdl:part element="impl:getUserIDResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="rejectTaskRequest">
+
+      <wsdl:part element="impl:rejectTask" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="rejectTaskResponse">
+
+      <wsdl:part element="impl:rejectTaskResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addTaskRequest">
+
+      <wsdl:part element="impl:addTask" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addTaskResponse">
+
+      <wsdl:part element="impl:addTaskResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="delTaskResponse">
+
+      <wsdl:part element="impl:delTaskResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getUserIDRequest">
+
+      <wsdl:part element="impl:getUserID" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTaskIDRequest">
+
+      <wsdl:part element="impl:getTaskID" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addSpTaskResponse">
+
+      <wsdl:part element="impl:addSpTaskResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="userApprovalRequest">
+
+      <wsdl:part element="impl:userApproval" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTaskIDResponse">
+
+      <wsdl:part element="impl:getTaskIDResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="seeTaskResponse">
+
+      <wsdl:part element="impl:seeTaskResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Task">
+
+      <wsdl:operation name="addTask">
+
+         <wsdl:input message="impl:addTaskRequest" name="addTaskRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addTaskResponse" name="addTaskResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addSpTask">
+
+         <wsdl:input message="impl:addSpTaskRequest" name="addSpTaskRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addSpTaskResponse" name="addSpTaskResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="delTask">
+
+         <wsdl:input message="impl:delTaskRequest" name="delTaskRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:delTaskResponse" name="delTaskResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="userApproval">
+
+         <wsdl:input message="impl:userApprovalRequest" name="userApprovalRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:userApprovalResponse" name="userApprovalResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUserID">
+
+         <wsdl:input message="impl:getUserIDRequest" name="getUserIDRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getUserIDResponse" name="getUserIDResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTaskID">
+
+         <wsdl:input message="impl:getTaskIDRequest" name="getTaskIDRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getTaskIDResponse" name="getTaskIDResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="rejectTask">
+
+         <wsdl:input message="impl:rejectTaskRequest" name="rejectTaskRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:rejectTaskResponse" name="rejectTaskResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="seeTask">
+
+         <wsdl:input message="impl:seeTaskRequest" name="seeTaskRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:seeTaskResponse" name="seeTaskResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="TaskSoapBinding" type="impl:Task">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="addTask">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addTaskRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addTaskResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addSpTask">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addSpTaskRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addSpTaskResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="delTask">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="delTaskRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="delTaskResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="userApproval">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="userApprovalRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="userApprovalResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUserID">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUserIDRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUserIDResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTaskID">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getTaskIDRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getTaskIDResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="rejectTask">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="rejectTaskRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="rejectTaskResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="seeTask">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="seeTaskRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="seeTaskResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="TaskService">
+
+      <wsdl:port binding="impl:TaskSoapBinding" name="Task">
+
+         <wsdlsoap:address location="http://localhost:8080/virtualCollaboration/services/Task"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

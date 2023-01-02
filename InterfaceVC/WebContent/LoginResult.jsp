@@ -5,21 +5,26 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Verifying Login</title>
+<title>Verifying Login...</title>
 </head>
 <body>
 <%
-Login a = new LoginProxy().getLogin();
+Login a=new LoginProxy().getLogin();
 String password=request.getParameter("password");
 String email=request.getParameter("email");
-
 boolean check=a.login(email, password);
-if(check){
-	response.sendRedirect("Menu.jsp");
+if(email!="" && password!=""){
+	if(check){
+	response.sendRedirect("Home.jsp");
+	}
+	else{
+	response.sendRedirect("Login.jsp?login=1");
+	}
 }
 else{
 	response.sendRedirect("Login.jsp?login=1");
 }
+
 %>
 </body>
 </html>

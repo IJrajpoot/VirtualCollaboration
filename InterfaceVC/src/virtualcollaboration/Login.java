@@ -9,6 +9,6 @@ package virtualcollaboration;
 
 public interface Login extends java.rmi.Remote {
     public boolean login(java.lang.String email, java.lang.String password) throws java.rmi.RemoteException;
-    public java.lang.String delUser(java.lang.String password, java.lang.String email) throws java.rmi.RemoteException;
     public java.lang.String createUser(java.lang.String name, java.lang.String password, java.lang.String email) throws java.rmi.RemoteException;
+    public java.lang.String delUser(java.lang.String password, java.lang.String email) throws java.rmi.RemoteException;
 }

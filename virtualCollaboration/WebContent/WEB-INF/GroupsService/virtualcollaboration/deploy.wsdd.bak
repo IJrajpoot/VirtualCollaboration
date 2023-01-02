@@ -23,16 +23,15 @@
       <operation name="createGroup" qname="operNS:createGroup" xmlns:operNS="http://virtualcollaboration" returnQName="retNS:createGroupReturn" xmlns:retNS="http://virtualcollaboration" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:Name" xmlns:pns="http://virtualcollaboration" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:Purpose" xmlns:pns="http://virtualcollaboration" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:members" xmlns:pns="http://virtualcollaboration" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <operation name="addMembers" qname="operNS:AddMembers" xmlns:operNS="http://virtualcollaboration" returnQName="retNS:AddMembersReturn" xmlns:retNS="http://virtualcollaboration" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      <operation name="addMembers" qname="operNS:addMembers" xmlns:operNS="http://virtualcollaboration" returnQName="retNS:addMembersReturn" xmlns:retNS="http://virtualcollaboration" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:GroupID" xmlns:pns="http://virtualcollaboration" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:users" xmlns:pns="http://virtualcollaboration" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <operation name="viewGroup" qname="operNS:ViewGroup" xmlns:operNS="http://virtualcollaboration" returnQName="retNS:ViewGroupReturn" xmlns:retNS="http://virtualcollaboration" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:gID" xmlns:pns="http://virtualcollaboration" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      <operation name="existingGroups" qname="operNS:existingGroups" xmlns:operNS="http://virtualcollaboration" returnQName="retNS:existingGroupsReturn" xmlns:retNS="http://virtualcollaboration" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:UserID" xmlns:pns="http://virtualcollaboration" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <parameter name="allowedMethods" value="viewGroup createGroup addMembers"/>
+      <parameter name="allowedMethods" value="createGroup addMembers existingGroups"/>
 
   </service>
 </deployment>

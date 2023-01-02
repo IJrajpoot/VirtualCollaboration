@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://virtualcollaboration" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://virtualcollaboration" xmlns:intf="http://virtualcollaboration" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://virtualcollaboration" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="createGroup">
+    <complexType>
+     <sequence>
+      <element name="Name" type="xsd:string"/>
+      <element name="Purpose" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createGroupResponse">
+    <complexType>
+     <sequence>
+      <element name="createGroupReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addMembers">
+    <complexType>
+     <sequence>
+      <element name="GroupID" type="xsd:int"/>
+      <element maxOccurs="unbounded" name="users" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addMembersResponse">
+    <complexType>
+     <sequence>
+      <element name="addMembersReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="existingGroups">
+    <complexType>
+     <sequence>
+      <element name="UserID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="existingGroupsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="existingGroupsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="createGroupResponse">
+
+      <wsdl:part element="impl:createGroupResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createGroupRequest">
+
+      <wsdl:part element="impl:createGroup" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addMembersResponse">
+
+      <wsdl:part element="impl:addMembersResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="existingGroupsRequest">
+
+      <wsdl:part element="impl:existingGroups" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addMembersRequest">
+
+      <wsdl:part element="impl:addMembers" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="existingGroupsResponse">
+
+      <wsdl:part element="impl:existingGroupsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Groups">
+
+      <wsdl:operation name="createGroup">
+
+         <wsdl:input message="impl:createGroupRequest" name="createGroupRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createGroupResponse" name="createGroupResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addMembers">
+
+         <wsdl:input message="impl:addMembersRequest" name="addMembersRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addMembersResponse" name="addMembersResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="existingGroups">
+
+         <wsdl:input message="impl:existingGroupsRequest" name="existingGroupsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:existingGroupsResponse" name="existingGroupsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="GroupsSoapBinding" type="impl:Groups">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="createGroup">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createGroupRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createGroupResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addMembers">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addMembersRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addMembersResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="existingGroups">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="existingGroupsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="existingGroupsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="GroupsService">
+
+      <wsdl:port binding="impl:GroupsSoapBinding" name="Groups">
+
+         <wsdlsoap:address location="http://localhost:8080/virtualCollaboration/services/Groups"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
