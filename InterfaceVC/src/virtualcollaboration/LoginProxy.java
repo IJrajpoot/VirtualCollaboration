@@ -50,16 +50,16 @@ public class LoginProxy implements virtualcollaboration.Login {
     return login.login(email, password);
   }
   
-  public java.lang.String delUser(java.lang.String password, java.lang.String email) throws java.rmi.RemoteException{
-    if (login == null)
-      _initLoginProxy();
-    return login.delUser(password, email);
-  }
-  
   public java.lang.String createUser(java.lang.String name, java.lang.String password, java.lang.String email) throws java.rmi.RemoteException{
     if (login == null)
       _initLoginProxy();
     return login.createUser(name, password, email);
+  }
+  
+  public java.lang.String delUser(java.lang.String password, java.lang.String email) throws java.rmi.RemoteException{
+    if (login == null)
+      _initLoginProxy();
+    return login.delUser(password, email);
   }
   
   

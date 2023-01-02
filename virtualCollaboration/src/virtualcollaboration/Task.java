@@ -1,5 +1,5 @@
 package virtualcollaboration;
-
+import java.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -85,7 +85,7 @@ public class Task {
 			Connection con =
 			DriverManager.getConnection("jdbc:mysql://localhost:3306/virtual_collaboration","root","");
 			Statement stmt=con.createStatement();
-			ResultSet rs=stmt.executeQuery("SELECT UserID from users where users.Email="+Email);
+			ResultSet rs=stmt.executeQuery("SELECT UserID from users where users.Email='"+Email+"'");
 			rs.next();
 			int Required=rs.getInt(1);
 			String query1="INSERT INTO `assignedtasks` ( `Name`, `Date`, `Time`,UserID) VALUES "
@@ -100,7 +100,7 @@ public class Task {
 			}
 	}
 	
-	public String userApproval(int UserID) {
+	public String[] userApproval(int UserID) {
 		
 
 		try{
@@ -109,21 +109,99 @@ public class Task {
 			DriverManager.getConnection("jdbc:mysql://localhost:3306/virtual_collaboration","root","");
 			Statement stmt=con.createStatement();
 			ResultSet rs=stmt.executeQuery("SELECT * from assignedtasks where Status='Pending' and UserID="+UserID);
-			boolean row=rs.next();
-			String Required="Name: "+rs.getString(2)+"   Description: "+rs.getString(3)+"   Date: "
+			int size=0;
+			while(rs.next()) {
+				size++;
+				}
+			rs.beforeFirst();
+			String[] Required=new String[size];
+			int i=0;
+			while(rs.next()) {
+			Required[i]="TaskID: "+rs.getInt(1)+"   Name: "+rs.getString(2)+"   Description: "+rs.getString(3)+"   Date: "
 			+rs.getString(4)+"   Time:"+rs.getString(5);
+			i++;
+			}
+			con.close();
+			
+				return Required;
+			
+			
+			} catch(Exception e)
+			{
+				return null;
+			}
+	}
+	public String getUserID(String email) {
+		
+		
+
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con =
+			DriverManager.getConnection("jdbc:mysql://localhost:3306/virtual_collaboration","root","");
+			Statement stmt=con.createStatement();
+			ResultSet rs=stmt.executeQuery("SELECT UserID from `users` where Email='"+email+"';");
+			String taskID=null;
+			int count=0;
+			rs.next();
+			
+				taskID=""+rs.getInt(1) ;
+				con.close();
+				return taskID;
+		
+			
+			} catch(Exception e)
+			{
+				
+				return "Exception";
+			}
+		
+
+
+	}
+
+	public String getTaskID(int UserID) {
+
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con =
+			DriverManager.getConnection("jdbc:mysql://localhost:3306/virtual_collaboration","root","");
+			Statement stmt=con.createStatement();
+			ResultSet rs=stmt.executeQuery("SELECT AssignedTaskID  from assignedtasks where Status='Pending' and UserID="+UserID);
+			String taskID=null;
+			int count=0;
+			rs.next();
+			
+				taskID=""+rs.getInt(1) ;
+				con.close();
+				return taskID;
+		
+			
+			} catch(Exception e)
+			{
+				
+				return "Exception";
+			}
+		
+	
+
+	}
+public String rejectTask(int taskID) {
+		
+		try{
+			Class.forName("com.mysql.jdbc.Driver");
+			Connection con =
+			DriverManager.getConnection("jdbc:mysql://localhost:3306/virtual_collaboration","root","");
+			Statement stmt=con.createStatement();
+			String query1="delete FROM `assignedtasks` WHERE AssignedTaskID="+taskID+";";
+			stmt.executeUpdate(query1);
 			
 			con.close();
-			if(row) {
-				return Required;
-			}
-			else {
-				return "No More Taks";
-			}
-			
+				return "Record Deleted Successfully...";
 			} catch(Exception e)
 			{
 				return e.getMessage();
 			}
 	}
+
 }

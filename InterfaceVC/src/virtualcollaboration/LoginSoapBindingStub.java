@@ -37,19 +37,6 @@ public class LoginSoapBindingStub extends org.apache.axis.client.Stub implements
         _operations[0] = oper;
 
         oper = new org.apache.axis.description.OperationDesc();
-        oper.setName("delUser");
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://virtualcollaboration", "password"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        oper.addParameter(param);
-        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://virtualcollaboration", "email"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
-        oper.addParameter(param);
-        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
-        oper.setReturnClass(java.lang.String.class);
-        oper.setReturnQName(new javax.xml.namespace.QName("http://virtualcollaboration", "delUserReturn"));
-        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
-        oper.setUse(org.apache.axis.constants.Use.LITERAL);
-        _operations[1] = oper;
-
-        oper = new org.apache.axis.description.OperationDesc();
         oper.setName("createUser");
         param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://virtualcollaboration", "name"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
         oper.addParameter(param);
@@ -60,6 +47,19 @@ public class LoginSoapBindingStub extends org.apache.axis.client.Stub implements
         oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
         oper.setReturnClass(java.lang.String.class);
         oper.setReturnQName(new javax.xml.namespace.QName("http://virtualcollaboration", "createUserReturn"));
+        oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
+        oper.setUse(org.apache.axis.constants.Use.LITERAL);
+        _operations[1] = oper;
+
+        oper = new org.apache.axis.description.OperationDesc();
+        oper.setName("delUser");
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://virtualcollaboration", "password"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        param = new org.apache.axis.description.ParameterDesc(new javax.xml.namespace.QName("http://virtualcollaboration", "email"), org.apache.axis.description.ParameterDesc.IN, new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"), java.lang.String.class, false, false);
+        oper.addParameter(param);
+        oper.setReturnType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        oper.setReturnClass(java.lang.String.class);
+        oper.setReturnQName(new javax.xml.namespace.QName("http://virtualcollaboration", "delUserReturn"));
         oper.setStyle(org.apache.axis.constants.Style.WRAPPED);
         oper.setUse(org.apache.axis.constants.Use.LITERAL);
         _operations[2] = oper;
@@ -151,7 +151,7 @@ public class LoginSoapBindingStub extends org.apache.axis.client.Stub implements
 }
     }
 
-    public java.lang.String delUser(java.lang.String password, java.lang.String email) throws java.rmi.RemoteException {
+    public java.lang.String createUser(java.lang.String name, java.lang.String password, java.lang.String email) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -163,11 +163,11 @@ public class LoginSoapBindingStub extends org.apache.axis.client.Stub implements
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://virtualcollaboration", "delUser"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://virtualcollaboration", "createUser"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {password, email});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {name, password, email});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;
@@ -185,7 +185,7 @@ public class LoginSoapBindingStub extends org.apache.axis.client.Stub implements
 }
     }
 
-    public java.lang.String createUser(java.lang.String name, java.lang.String password, java.lang.String email) throws java.rmi.RemoteException {
+    public java.lang.String delUser(java.lang.String password, java.lang.String email) throws java.rmi.RemoteException {
         if (super.cachedEndpoint == null) {
             throw new org.apache.axis.NoEndPointException();
         }
@@ -197,11 +197,11 @@ public class LoginSoapBindingStub extends org.apache.axis.client.Stub implements
         _call.setProperty(org.apache.axis.client.Call.SEND_TYPE_ATTR, Boolean.FALSE);
         _call.setProperty(org.apache.axis.AxisEngine.PROP_DOMULTIREFS, Boolean.FALSE);
         _call.setSOAPVersion(org.apache.axis.soap.SOAPConstants.SOAP11_CONSTANTS);
-        _call.setOperationName(new javax.xml.namespace.QName("http://virtualcollaboration", "createUser"));
+        _call.setOperationName(new javax.xml.namespace.QName("http://virtualcollaboration", "delUser"));
 
         setRequestHeaders(_call);
         setAttachments(_call);
- try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {name, password, email});
+ try {        java.lang.Object _resp = _call.invoke(new java.lang.Object[] {password, email});
 
         if (_resp instanceof java.rmi.RemoteException) {
             throw (java.rmi.RemoteException)_resp;

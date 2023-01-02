@@ -13,7 +13,7 @@ public class Login {
 			Connection con =
 			DriverManager.getConnection("jdbc:mysql://localhost:3306/virtual_collaboration","root","");
 			Statement stmt=con.createStatement();
-			ResultSet rs=stmt.executeQuery("SELECT * from users where Username='"+password+"' or Email='"+email+"';");
+			ResultSet rs=stmt.executeQuery("SELECT * from users where Username='"+password+"' and Email='"+email+"';");
 			int count=0;
 			
 			while(rs.next()) {

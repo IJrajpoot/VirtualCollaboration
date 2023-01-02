@@ -1,44 +1,15 @@
 package virtualcollaboration;
 import java.sql.*;
 public class Group {
-	
-	
-		public String viewGroup(int gID) {
-
-			try{
-				Class.forName("com.mysql.jdbc.Driver");
-				Connection con =
-				DriverManager.getConnection("jdbc:mysql://localhost:3306/virtual_collaboration","root","");
-				Statement stmt=con.createStatement();
-				ResultSet rs=stmt.executeQuery("SELECT * from groups where GroupID="+gID);
-				String Required=null;
-				
-				while(rs.next())
-				{
-				
-					Required="Group Name: " + rs.getString(2) + " Purpsoe: " + rs.getString(3) + " Members: "
-				+ rs.getString(4);
-				}
-				con.close();
-				return Required;
-				
-				} catch(Exception e)
-				{
-					
-					return e.getMessage();
-				}
 			
-			
-		}
-		
-		public String createGroup(String Name,String Purpose,int members) {
+		public String createGroup(String Name,String Purpose) {
 			try{
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection con =
 				DriverManager.getConnection("jdbc:mysql://localhost:3306/virtual_collaboration","root","");
 				Statement stmt=con.createStatement();
 				
-				String query1="insert into groups(name,Purpose,NoOfMembers) values('"+Name+"','"+Purpose+"',"+members+");";
+				String query1="insert into groups(name,Purpose) values('"+Name+"','"+Purpose+"');";
 				stmt.executeUpdate(query1);
 				
 				con.close();
@@ -122,6 +93,38 @@ public class Group {
 		
 		
 		
+		public GroupDetail[] existingGroups() {
 
+			try{
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection con =
+				DriverManager.getConnection("jdbc:mysql://localhost:3306/virtual_collaboration","root","");
+				Statement stmt=con.createStatement();
+				ResultSet rs=stmt.executeQuery("SELECT * FROM groups");
+				
+				int i=0,size=0;
+				rs.last();
+				size=rs.getRow();
+				
+				rs.beforeFirst();
+				GroupDetail[] Req=new GroupDetail[size];
+				
+				while(rs.next())
+				{
+					Req[i] = new GroupDetail();
+					Req[i].Name=rs.getString(2);
+					Req[i].Purpose=rs.getString(3);
+					i++;
+				
+				}
+				con.close();
+					return Req;
+				} catch(Exception e)
+				{
+					
+					return null;
+				}
+		
+		}
 
 }
