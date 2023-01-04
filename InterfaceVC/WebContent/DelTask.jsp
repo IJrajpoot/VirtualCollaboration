@@ -16,11 +16,7 @@
 </div>
 <label class="bottomLine">Sharing is easy here...</label>
 <div class="first">
- <%
- if(request.getParameter("delTask")!=null){
-	out.println("Please try again!<br>"); 
- }
- %>
+
  </div >
   <h1>Provide Task ID to delete it.</h1>
 <form action="DelTaskResult.jsp" class="myDiv">
