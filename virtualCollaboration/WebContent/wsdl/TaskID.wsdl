@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://virtualcollaboration" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://virtualcollaboration" xmlns:intf="http://virtualcollaboration" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://virtualcollaboration" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getTaskID">
+    <complexType>
+     <sequence>
+      <element name="groupID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTaskIDResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getTaskIDReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="seeTask">
+    <complexType>
+     <sequence>
+      <element name="groupID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="seeTaskResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="seeTaskReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="seeTaskRequest">
+
+      <wsdl:part element="impl:seeTask" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTaskIDRequest">
+
+      <wsdl:part element="impl:getTaskID" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getTaskIDResponse">
+
+      <wsdl:part element="impl:getTaskIDResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="seeTaskResponse">
+
+      <wsdl:part element="impl:seeTaskResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="TaskID">
+
+      <wsdl:operation name="getTaskID">
+
+         <wsdl:input message="impl:getTaskIDRequest" name="getTaskIDRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getTaskIDResponse" name="getTaskIDResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="seeTask">
+
+         <wsdl:input message="impl:seeTaskRequest" name="seeTaskRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:seeTaskResponse" name="seeTaskResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="TaskIDSoapBinding" type="impl:TaskID">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getTaskID">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getTaskIDRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getTaskIDResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="seeTask">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="seeTaskRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="seeTaskResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="TaskIDService">
+
+      <wsdl:port binding="impl:TaskIDSoapBinding" name="TaskID">
+
+         <wsdlsoap:address location="http://localhost:8080/virtualCollaboration/services/TaskID"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
