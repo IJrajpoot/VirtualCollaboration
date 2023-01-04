@@ -10,12 +10,14 @@
 <body>
 
 
+
 <%
-Task ann=new TaskProxy().getTask();
-String ID=request.getParameter("taskID");
+Task a=new TaskProxy().getTask();
+String ID=request.getParameter("TaskID");
 int tID=Integer.parseInt(ID);
 
-String sout=ann.delTask(tID);
+String sout=a.delTask(tID);
+
 boolean check=(sout!=null);
 if(ID!=null){
 	if(check){
@@ -26,10 +28,11 @@ if(ID!=null){
 	}
 }
 else{
-	response.sendRedirect("DelAnnouncement.jsp?delAnn=1");
+	response.sendRedirect("DelTask.jsp?delTask=1");
 }
 
 %>
+
 
 
 </body>

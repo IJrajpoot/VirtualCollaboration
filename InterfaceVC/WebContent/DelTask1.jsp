@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Delete Announcement</title>
+<title>Delete Task</title>
 <link rel="stylesheet" href="Check.css" type="text/css">
 </head>
 <body>
@@ -17,7 +17,7 @@
 </div>
 <label class="bottomLine">Sharing is easy here...</label>
 <br><br><br><br>
-	<form  action="DelAnn2.jsp" class="innerForm" style="background-color: LightGray; color:teal;">
+	<form  action="DelTask.jsp" class="innerForm" style="background-color: LightGray; color:teal;">
 		<%
 		Task b=new TaskProxy().getTask();
 		String email = session.getAttribute("userEmail").toString();
@@ -34,7 +34,8 @@
 		<table>
 			<tr>
   			 <th> <b>GroupID: </b></th>
-  		  <th><input type="text" name="Del"></th>
+  			 
+  		  <th><input type="text" name="DelTask"></th>
 		</tr>	
 		</table>
 		

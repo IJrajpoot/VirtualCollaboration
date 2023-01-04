@@ -21,6 +21,62 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
+   <element name="rejectTask">
+    <complexType>
+     <sequence>
+      <element name="taskID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="rejectTaskResponse">
+    <complexType>
+     <sequence>
+      <element name="rejectTaskReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTaskID">
+    <complexType>
+     <sequence>
+      <element name="groupID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getTaskIDResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getTaskIDReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUserID">
+    <complexType>
+     <sequence>
+      <element name="email" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getUserIDResponse">
+    <complexType>
+     <sequence>
+      <element name="getUserIDReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="userApproval">
+    <complexType>
+     <sequence>
+      <element name="UserID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="userApprovalResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="userApprovalReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
    <element name="addSpTask">
     <complexType>
      <sequence>
@@ -49,62 +105,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     <complexType>
      <sequence>
       <element name="delTaskReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="userApproval">
-    <complexType>
-     <sequence>
-      <element name="UserID" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="userApprovalResponse">
-    <complexType>
-     <sequence>
-      <element maxOccurs="unbounded" name="userApprovalReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getUserID">
-    <complexType>
-     <sequence>
-      <element name="email" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getUserIDResponse">
-    <complexType>
-     <sequence>
-      <element name="getUserIDReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getTaskID">
-    <complexType>
-     <sequence>
-      <element name="UserID" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="getTaskIDResponse">
-    <complexType>
-     <sequence>
-      <element name="getTaskIDReturn" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="rejectTask">
-    <complexType>
-     <sequence>
-      <element name="taskID" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="rejectTaskResponse">
-    <complexType>
-     <sequence>
-      <element name="rejectTaskReturn" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
@@ -157,17 +157,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="getUserIDResponse">
+   <wsdl:message name="rejectTaskRequest">
 
-      <wsdl:part element="impl:getUserIDResponse" name="parameters">
+      <wsdl:part element="impl:rejectTask" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="rejectTaskRequest">
+   <wsdl:message name="getUserIDResponse">
 
-      <wsdl:part element="impl:rejectTask" name="parameters">
+      <wsdl:part element="impl:getUserIDResponse" name="parameters">
 
       </wsdl:part>
 
@@ -267,6 +267,54 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="rejectTask">
+
+         <wsdl:input message="impl:rejectTaskRequest" name="rejectTaskRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:rejectTaskResponse" name="rejectTaskResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTaskID">
+
+         <wsdl:input message="impl:getTaskIDRequest" name="getTaskIDRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getTaskIDResponse" name="getTaskIDResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUserID">
+
+         <wsdl:input message="impl:getUserIDRequest" name="getUserIDRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getUserIDResponse" name="getUserIDResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="userApproval">
+
+         <wsdl:input message="impl:userApprovalRequest" name="userApprovalRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:userApprovalResponse" name="userApprovalResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
       <wsdl:operation name="addSpTask">
 
          <wsdl:input message="impl:addSpTaskRequest" name="addSpTaskRequest">
@@ -286,54 +334,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:delTaskResponse" name="delTaskResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="userApproval">
-
-         <wsdl:input message="impl:userApprovalRequest" name="userApprovalRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:userApprovalResponse" name="userApprovalResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getUserID">
-
-         <wsdl:input message="impl:getUserIDRequest" name="getUserIDRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getUserIDResponse" name="getUserIDResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getTaskID">
-
-         <wsdl:input message="impl:getTaskIDRequest" name="getTaskIDRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:getTaskIDResponse" name="getTaskIDResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="rejectTask">
-
-         <wsdl:input message="impl:rejectTaskRequest" name="rejectTaskRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:rejectTaskResponse" name="rejectTaskResponse">
 
        </wsdl:output>
 
@@ -375,6 +375,78 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
+      <wsdl:operation name="rejectTask">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="rejectTaskRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="rejectTaskResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getTaskID">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getTaskIDRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getTaskIDResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getUserID">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getUserIDRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getUserIDResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="userApproval">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="userApprovalRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="userApprovalResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
       <wsdl:operation name="addSpTask">
 
          <wsdlsoap:operation soapAction=""/>
@@ -404,78 +476,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="delTaskResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="userApproval">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="userApprovalRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="userApprovalResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getUserID">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getUserIDRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getUserIDResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="getTaskID">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="getTaskIDRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="getTaskIDResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="rejectTask">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="rejectTaskRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="rejectTaskResponse">
 
             <wsdlsoap:body use="literal"/>
 

@@ -12,9 +12,11 @@
 <%
 Announcement a=new AnnouncementProxy().getAnnouncement();
 String announce=request.getParameter("Announcement");
-String sout=a.addAnnouncementt(announce, 1);
+String i=request.getParameter("ann");
+int k=Integer.parseInt(i);
+String sout=a.addAnnouncementt(announce, k);
 boolean check=(sout!="");
-if(announce!=""){
+if(announce!="" && request.getParameter("ann")!=""){
 	if(check){
 	response.sendRedirect("Announcement.jsp");
 	}

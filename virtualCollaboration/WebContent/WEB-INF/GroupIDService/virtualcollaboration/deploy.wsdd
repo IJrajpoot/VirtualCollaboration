@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- Use this file to deploy some handlers/chains and services      --><!-- Two ways to do this:                                           --><!--   java org.apache.axis.client.AdminClient deploy.wsdd          --><!--      after the axis server is running                          --><!-- or                                                             --><!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   --><!--      from the same directory that the Axis engine runs         --><deployment xmlns="http://xml.apache.org/axis/wsdd/" xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from GroupIDService WSDL service -->
+
+  <service name="GroupID" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://virtualcollaboration"/>
+      <parameter name="wsdlServiceElement" value="GroupIDService"/>
+      <parameter name="schemaQualified" value="http://virtualcollaboration"/>
+      <parameter name="wsdlServicePort" value="GroupID"/>
+      <parameter name="className" value="virtualcollaboration.GroupID"/>
+      <parameter name="wsdlPortType" value="GroupID"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getGroupID" qname="operNS:getGroupID" returnQName="retNS:getGroupIDReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:userID" type="tns:int"/>
+      </operation>
+      <parameter name="allowedMethods" value="getGroupID"/>
+
+  </service>
+</deployment>

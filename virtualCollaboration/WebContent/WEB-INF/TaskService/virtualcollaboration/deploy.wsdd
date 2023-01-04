@@ -16,6 +16,18 @@
         <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:time" type="tns:string"/>
         <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:GroupID" type="tns:int"/>
       </operation>
+      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="rejectTask" qname="operNS:rejectTask" returnQName="retNS:rejectTaskReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:taskID" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getTaskID" qname="operNS:getTaskID" returnQName="retNS:getTaskIDReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:groupID" type="tns:int"/>
+      </operation>
+      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getUserID" qname="operNS:getUserID" returnQName="retNS:getUserIDReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:email" type="tns:string"/>
+      </operation>
+      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="userApproval" qname="operNS:userApproval" returnQName="retNS:userApprovalReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:UserID" type="tns:int"/>
+      </operation>
       <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="addSpTask" qname="operNS:addSpTask" returnQName="retNS:addSpTaskReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:task" type="tns:string"/>
         <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:date" type="tns:string"/>
@@ -23,18 +35,6 @@
         <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:Email" type="tns:string"/>
       </operation>
       <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="delTask" qname="operNS:delTask" returnQName="retNS:delTaskReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:taskID" type="tns:int"/>
-      </operation>
-      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="userApproval" qname="operNS:userApproval" returnQName="retNS:userApprovalReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:UserID" type="tns:int"/>
-      </operation>
-      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getUserID" qname="operNS:getUserID" returnQName="retNS:getUserIDReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:email" type="tns:string"/>
-      </operation>
-      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getTaskID" qname="operNS:getTaskID" returnQName="retNS:getTaskIDReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:UserID" type="tns:int"/>
-      </operation>
-      <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="rejectTask" qname="operNS:rejectTask" returnQName="retNS:rejectTaskReturn" returnType="rtns:string" soapAction="">
         <parameter xmlns:pns="http://virtualcollaboration" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:taskID" type="tns:int"/>
       </operation>
       <operation xmlns:operNS="http://virtualcollaboration" xmlns:retNS="http://virtualcollaboration" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="seeTask" qname="operNS:seeTask" returnQName="retNS:seeTaskReturn" returnType="rtns:string" soapAction="">
