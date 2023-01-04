@@ -18,6 +18,11 @@
 <label class="bottomLine">Sharing is easy here...</label>
 <br><br><br><br>
 	<form  action="DelTask.jsp" class="innerForm" style="background-color: LightGray; color:teal;">
+	 <%
+ if(request.getParameter("delTask")!=null){
+	out.println("Please try again!<br>"); 
+ }
+ %>
 		<%
 		Task b=new TaskProxy().getTask();
 		String email = session.getAttribute("userEmail").toString();

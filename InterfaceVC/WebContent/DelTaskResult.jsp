@@ -21,10 +21,10 @@ String sout=a.delTask(tID);
 boolean check=(sout!=null);
 if(ID!=null){
 	if(check){
-	response.sendRedirect("Task.jsp");
+	response.sendRedirect("Tasks.jsp");
 	}
 	else{
-	response.sendRedirect("DelTask.jsp?delTask=1");
+	response.sendRedirect("DelTask1.jsp?delTask=1");
 	}
 }
 else{

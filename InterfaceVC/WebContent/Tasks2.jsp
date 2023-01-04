@@ -16,7 +16,7 @@
   <a  href="Menu.jsp">Groups</a>
   <a class="active" href="Tasks.jsp">Tasks</a>
   <a href="AddGroupTask.jsp">Add Group Task</a>
-  <a href="DelTask.jsp">Delete Task</a>
+  <a href="DelTask1.jsp">Delete Task</a>
  	
 </div>
 
