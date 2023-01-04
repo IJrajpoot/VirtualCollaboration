@@ -16,7 +16,7 @@
   <a  href="Menu.jsp">Groups</a>
   <a class="active" href="Tasks.jsp">Tasks</a>
   <a href="AddGroupTask.jsp">Add Group Task</a>
-  <a href="DelTask.jsp">Delete Task</a>
+  <a href="DelTask1.jsp">Delete Tasks</a>
  	
 </div>
 
@@ -30,17 +30,32 @@
 	<form  class="FormDiv">
 	<h1>Group Tasks</h1>
 	</form>
-		<form class="innerForm" style="background-color: LightGray; color:teal;">
+		<form action="Tasks2.jsp" class="innerForm" style="background-color: LightGray; color:teal;">
 		<%
 		Task t=new TaskProxy().getTask();
 		%>		
 		<%
-		
-		String[] req = t.seeTask(1);
-		for(int i=0; i<req.length; i++){
-		out.println("<hr><br>" + req[i]);
+		Task b=new TaskProxy().getTask();
+		String email = session.getAttribute("userEmail").toString();
+		String c=b.getUserID(email);
+		int input=Integer.parseInt(c);
+		out.println("Your Available Group's IDs:  " );
+		GroupID g=new GroupIDProxy().getGroupID();
+		String[] gID =g.getGroupID(input);
+		for(int i=0; i<gID.length; i++){
+		out.println( "<br>"+gID[i] );
 		}
+		
+		
 %>
+<table>
+		<tr>
+  		<th> <b>GroupID: </b></th>
+  		<th><input type="text" name="Group1"></th>
+		</tr>	
+</table>
+		
+  <button type="submit">View</button>
 		</form>	
 	
 	</div>

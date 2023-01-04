@@ -133,8 +133,6 @@ public class Task {
 	}
 	public String getUserID(String email) {
 		
-		
-
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con =
@@ -160,30 +158,43 @@ public class Task {
 
 	}
 
-	public String getTaskID(int UserID) {
+	public String[] getTaskID(int groupID) {
 
 		try{
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con =
 			DriverManager.getConnection("jdbc:mysql://localhost:3306/virtual_collaboration","root","");
 			Statement stmt=con.createStatement();
-			ResultSet rs=stmt.executeQuery("SELECT AssignedTaskID  from assignedtasks where Status='Pending' and UserID="+UserID);
-			String taskID=null;
-			int count=0;
-			rs.next();
+			ResultSet rs=stmt.executeQuery("SELECT TaskID FROM `tasks` WHERE GroupID="+groupID);
 			
-				taskID=""+rs.getInt(1) ;
-				con.close();
-				return taskID;
-		
+			
+			int count=0;
+			while(rs.next())
+			{
+				count++;
+				
+			}
+			
+			String[] Announce=new String[count];
+			int i=0;
+			ResultSet rs1=stmt.executeQuery("SELECT * from announcement where GroupID="+groupID);
+			while(rs1.next())
+			{
+			
+				Announce[i]=""+rs1.getInt(1) ;
+				
+				i++;
+				
+			}
+			con.close();
+			return Announce;
 			
 			} catch(Exception e)
 			{
 				
-				return "Exception";
+				return null;
 			}
 		
-	
 
 	}
 public String rejectTask(int taskID) {

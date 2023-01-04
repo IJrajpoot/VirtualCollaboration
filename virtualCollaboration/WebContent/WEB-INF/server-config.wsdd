@@ -49,25 +49,25 @@
    <ns1:parameter qname="ns5:time" type="xsd:string"/>
    <ns1:parameter qname="ns5:GroupID" type="xsd:int"/>
   </ns1:operation>
-  <ns1:operation name="addSpTask" qname="ns6:addSpTask" returnQName="ns6:addSpTaskReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns6:task" type="xsd:string"/>
-   <ns1:parameter qname="ns6:date" type="xsd:string"/>
-   <ns1:parameter qname="ns6:time" type="xsd:string"/>
-   <ns1:parameter qname="ns6:Email" type="xsd:string"/>
+  <ns1:operation name="rejectTask" qname="ns6:rejectTask" returnQName="ns6:rejectTaskReturn" returnType="xsd:string" soapAction="" xmlns:ns6="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns6:taskID" type="xsd:int"/>
   </ns1:operation>
-  <ns1:operation name="delTask" qname="ns7:delTask" returnQName="ns7:delTaskReturn" returnType="xsd:string" soapAction="" xmlns:ns7="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns7:taskID" type="xsd:int"/>
+  <ns1:operation name="getTaskID" qname="ns7:getTaskID" returnQName="ns7:getTaskIDReturn" returnType="xsd:string" soapAction="" xmlns:ns7="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns7:groupID" type="xsd:int"/>
   </ns1:operation>
-  <ns1:operation name="userApproval" qname="ns8:userApproval" returnQName="ns8:userApprovalReturn" returnType="xsd:string" soapAction="" xmlns:ns8="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns8:UserID" type="xsd:int"/>
+  <ns1:operation name="getUserID" qname="ns8:getUserID" returnQName="ns8:getUserIDReturn" returnType="xsd:string" soapAction="" xmlns:ns8="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns8:email" type="xsd:string"/>
   </ns1:operation>
-  <ns1:operation name="getUserID" qname="ns9:getUserID" returnQName="ns9:getUserIDReturn" returnType="xsd:string" soapAction="" xmlns:ns9="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns9:email" type="xsd:string"/>
+  <ns1:operation name="userApproval" qname="ns9:userApproval" returnQName="ns9:userApprovalReturn" returnType="xsd:string" soapAction="" xmlns:ns9="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns9:UserID" type="xsd:int"/>
   </ns1:operation>
-  <ns1:operation name="getTaskID" qname="ns10:getTaskID" returnQName="ns10:getTaskIDReturn" returnType="xsd:string" soapAction="" xmlns:ns10="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns10:UserID" type="xsd:int"/>
+  <ns1:operation name="addSpTask" qname="ns10:addSpTask" returnQName="ns10:addSpTaskReturn" returnType="xsd:string" soapAction="" xmlns:ns10="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns10:task" type="xsd:string"/>
+   <ns1:parameter qname="ns10:date" type="xsd:string"/>
+   <ns1:parameter qname="ns10:time" type="xsd:string"/>
+   <ns1:parameter qname="ns10:Email" type="xsd:string"/>
   </ns1:operation>
-  <ns1:operation name="rejectTask" qname="ns11:rejectTask" returnQName="ns11:rejectTaskReturn" returnType="xsd:string" soapAction="" xmlns:ns11="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ns1:operation name="delTask" qname="ns11:delTask" returnQName="ns11:delTaskReturn" returnType="xsd:string" soapAction="" xmlns:ns11="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <ns1:parameter qname="ns11:taskID" type="xsd:int"/>
   </ns1:operation>
   <ns1:operation name="seeTask" qname="ns12:seeTask" returnQName="ns12:seeTaskReturn" returnType="xsd:string" soapAction="" xmlns:ns12="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
@@ -88,19 +88,35 @@
   <ns1:parameter name="className" value="org.apache.axis.utils.Admin"/>
   <ns1:namespace>http://xml.apache.org/axis/wsdd/</ns1:namespace>
  </ns1:service>
- <ns1:service name="Announcement" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="seeAnnID" qname="ns13:seeAnnID" returnQName="ns13:seeAnnIDReturn" returnType="xsd:string" soapAction="" xmlns:ns13="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <ns1:service name="TaskID" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="getTaskID" qname="ns13:getTaskID" returnQName="ns13:getTaskIDReturn" returnType="xsd:string" soapAction="" xmlns:ns13="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <ns1:parameter qname="ns13:groupID" type="xsd:int"/>
   </ns1:operation>
-  <ns1:operation name="delAnnouncementt" qname="ns14:delAnnouncementt" returnQName="ns14:delAnnouncementtReturn" returnType="xsd:string" soapAction="" xmlns:ns14="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns14:announceID" type="xsd:int"/>
+  <ns1:operation name="seeTask" qname="ns14:seeTask" returnQName="ns14:seeTaskReturn" returnType="xsd:string" soapAction="" xmlns:ns14="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns14:groupID" type="xsd:int"/>
   </ns1:operation>
-  <ns1:operation name="addAnnouncementt" qname="ns15:addAnnouncementt" returnQName="ns15:addAnnouncementtReturn" returnType="xsd:string" soapAction="" xmlns:ns15="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns15:Announcement" type="xsd:string"/>
+  <ns1:parameter name="allowedMethods" value="getTaskID seeTask"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="TaskID"/>
+  <ns1:parameter name="className" value="virtualcollaboration.TaskID"/>
+  <ns1:parameter name="wsdlServicePort" value="TaskID"/>
+  <ns1:parameter name="schemaQualified" value="http://virtualcollaboration"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://virtualcollaboration"/>
+  <ns1:parameter name="wsdlServiceElement" value="TaskIDService"/>
+ </ns1:service>
+ <ns1:service name="Announcement" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="seeAnnID" qname="ns15:seeAnnID" returnQName="ns15:seeAnnIDReturn" returnType="xsd:string" soapAction="" xmlns:ns15="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <ns1:parameter qname="ns15:groupID" type="xsd:int"/>
   </ns1:operation>
-  <ns1:operation name="seeAnnouncements" qname="ns16:seeAnnouncements" returnQName="ns16:seeAnnouncementsReturn" returnType="xsd:string" soapAction="" xmlns:ns16="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns16:groupID" type="xsd:int"/>
+  <ns1:operation name="delAnnouncementt" qname="ns16:delAnnouncementt" returnQName="ns16:delAnnouncementtReturn" returnType="xsd:string" soapAction="" xmlns:ns16="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns16:announceID" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="addAnnouncementt" qname="ns17:addAnnouncementt" returnQName="ns17:addAnnouncementtReturn" returnType="xsd:string" soapAction="" xmlns:ns17="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns17:Announcement" type="xsd:string"/>
+   <ns1:parameter qname="ns17:groupID" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="seeAnnouncements" qname="ns18:seeAnnouncements" returnQName="ns18:seeAnnouncementsReturn" returnType="xsd:string" soapAction="" xmlns:ns18="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns18:groupID" type="xsd:int"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="addAnnouncementt seeAnnouncements seeAnnID delAnnouncementt"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
@@ -116,16 +132,16 @@
   <ns1:parameter name="className" value="org.apache.axis.Version"/>
  </ns1:service>
  <ns1:service name="Groups" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="createGroup" qname="ns17:createGroup" returnQName="ns17:createGroupReturn" returnType="xsd:string" soapAction="" xmlns:ns17="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns17:Name" type="xsd:string"/>
-   <ns1:parameter qname="ns17:Purpose" type="xsd:string"/>
+  <ns1:operation name="createGroup" qname="ns19:createGroup" returnQName="ns19:createGroupReturn" returnType="xsd:string" soapAction="" xmlns:ns19="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns19:Name" type="xsd:string"/>
+   <ns1:parameter qname="ns19:Purpose" type="xsd:string"/>
   </ns1:operation>
-  <ns1:operation name="addMembers" qname="ns18:addMembers" returnQName="ns18:addMembersReturn" returnType="xsd:string" soapAction="" xmlns:ns18="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns18:GroupID" type="xsd:int"/>
-   <ns1:parameter qname="ns18:users" type="xsd:string"/>
+  <ns1:operation name="addMembers" qname="ns20:addMembers" returnQName="ns20:addMembersReturn" returnType="xsd:string" soapAction="" xmlns:ns20="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns20:GroupID" type="xsd:int"/>
+   <ns1:parameter qname="ns20:users" type="xsd:string"/>
   </ns1:operation>
-  <ns1:operation name="existingGroups" qname="ns19:existingGroups" returnQName="ns19:existingGroupsReturn" returnType="xsd:string" soapAction="" xmlns:ns19="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns19:UserID" type="xsd:int"/>
+  <ns1:operation name="existingGroups" qname="ns21:existingGroups" returnQName="ns21:existingGroupsReturn" returnType="xsd:string" soapAction="" xmlns:ns21="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns21:UserID" type="xsd:int"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="createGroup addMembers existingGroups"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
@@ -137,18 +153,18 @@
   <ns1:parameter name="wsdlServiceElement" value="GroupsService"/>
  </ns1:service>
  <ns1:service name="Login" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="login" qname="ns20:login" returnQName="ns20:loginReturn" returnType="xsd:boolean" soapAction="" xmlns:ns20="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns20:email" type="xsd:string"/>
-   <ns1:parameter qname="ns20:password" type="xsd:string"/>
-  </ns1:operation>
-  <ns1:operation name="createUser" qname="ns21:createUser" returnQName="ns21:createUserReturn" returnType="xsd:string" soapAction="" xmlns:ns21="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns21:name" type="xsd:string"/>
-   <ns1:parameter qname="ns21:password" type="xsd:string"/>
-   <ns1:parameter qname="ns21:Email" type="xsd:string"/>
-  </ns1:operation>
-  <ns1:operation name="delUser" qname="ns22:delUser" returnQName="ns22:delUserReturn" returnType="xsd:string" soapAction="" xmlns:ns22="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns22:password" type="xsd:string"/>
+  <ns1:operation name="login" qname="ns22:login" returnQName="ns22:loginReturn" returnType="xsd:boolean" soapAction="" xmlns:ns22="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
    <ns1:parameter qname="ns22:email" type="xsd:string"/>
+   <ns1:parameter qname="ns22:password" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="createUser" qname="ns23:createUser" returnQName="ns23:createUserReturn" returnType="xsd:string" soapAction="" xmlns:ns23="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns23:name" type="xsd:string"/>
+   <ns1:parameter qname="ns23:password" type="xsd:string"/>
+   <ns1:parameter qname="ns23:Email" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="delUser" qname="ns24:delUser" returnQName="ns24:delUserReturn" returnType="xsd:string" soapAction="" xmlns:ns24="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns24:password" type="xsd:string"/>
+   <ns1:parameter qname="ns24:email" type="xsd:string"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="delUser createUser login"/>
   <ns1:parameter name="typeMappingVersion" value="1.2"/>
@@ -160,19 +176,19 @@
   <ns1:parameter name="wsdlServiceElement" value="LoginService"/>
  </ns1:service>
  <ns1:service name="Document" provider="java:RPC" style="wrapped" use="literal">
-  <ns1:operation name="addDocument" qname="ns23:addDocument" returnQName="ns23:addDocumentReturn" returnType="xsd:string" soapAction="" xmlns:ns23="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns23:DocName" type="xsd:string"/>
-   <ns1:parameter qname="ns23:DocCategory" type="xsd:string"/>
-   <ns1:parameter qname="ns23:groupID" type="xsd:int"/>
+  <ns1:operation name="addDocument" qname="ns25:addDocument" returnQName="ns25:addDocumentReturn" returnType="xsd:string" soapAction="" xmlns:ns25="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns25:DocName" type="xsd:string"/>
+   <ns1:parameter qname="ns25:DocCategory" type="xsd:string"/>
+   <ns1:parameter qname="ns25:groupID" type="xsd:int"/>
   </ns1:operation>
-  <ns1:operation name="searchDocument" qname="ns24:searchDocument" returnQName="ns24:searchDocumentReturn" returnType="xsd:string" soapAction="" xmlns:ns24="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns24:search" type="xsd:string"/>
+  <ns1:operation name="searchDocument" qname="ns26:searchDocument" returnQName="ns26:searchDocumentReturn" returnType="xsd:string" soapAction="" xmlns:ns26="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns26:search" type="xsd:string"/>
   </ns1:operation>
-  <ns1:operation name="seeDocument" qname="ns25:seeDocument" returnQName="ns25:seeDocumentReturn" returnType="xsd:string" soapAction="" xmlns:ns25="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns25:GroupID" type="xsd:int"/>
+  <ns1:operation name="seeDocument" qname="ns27:seeDocument" returnQName="ns27:seeDocumentReturn" returnType="xsd:string" soapAction="" xmlns:ns27="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns27:GroupID" type="xsd:int"/>
   </ns1:operation>
-  <ns1:operation name="delDocument" qname="ns26:delDocument" returnQName="ns26:delDocumentReturn" returnType="xsd:string" soapAction="" xmlns:ns26="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-   <ns1:parameter qname="ns26:docID" type="xsd:int"/>
+  <ns1:operation name="delDocument" qname="ns28:delDocument" returnQName="ns28:delDocumentReturn" returnType="xsd:string" soapAction="" xmlns:ns28="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns28:docID" type="xsd:int"/>
   </ns1:operation>
   <ns1:parameter name="allowedMethods" value="seeDocument delDocument addDocument searchDocument"/>
   <ns1:parameter name="wsdlPortType" value="Document"/>
@@ -182,6 +198,19 @@
   <ns1:parameter name="className" value="virtualcollaboration.Document"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://virtualcollaboration"/>
   <ns1:parameter name="wsdlServiceElement" value="DocumentService"/>
+ </ns1:service>
+ <ns1:service name="GroupID" provider="java:RPC" style="wrapped" use="literal">
+  <ns1:operation name="getGroupID" qname="ns29:getGroupID" returnQName="ns29:getGroupIDReturn" returnType="xsd:string" soapAction="" xmlns:ns29="http://virtualcollaboration" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns29:userID" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="getGroupID"/>
+  <ns1:parameter name="wsdlPortType" value="GroupID"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="schemaQualified" value="http://virtualcollaboration"/>
+  <ns1:parameter name="wsdlServicePort" value="GroupID"/>
+  <ns1:parameter name="className" value="virtualcollaboration.GroupID"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://virtualcollaboration"/>
+  <ns1:parameter name="wsdlServiceElement" value="GroupIDService"/>
  </ns1:service>
  <ns1:transport name="http">
   <ns1:requestFlow>

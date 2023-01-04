@@ -16,34 +16,31 @@
 <label>Virtual Collaboration</label>
 </div>
 <label class="bottomLine">Sharing is easy here...</label>
-<div class="first">
- <%
- if(request.getParameter("delAnn")!=null){
-	out.println("Please try again!<br>"); 
- }
- %>
- </div >
-  <h1>Provide Announcement ID to delete it.</h1>
-<form action="DelAnnResult.jsp" class="myDiv">
- 
-   
-
-   <label style="text-align:left;"> <b>Announcement ID: </b></label>
-   <select id="AnnouncementID" name="AnnouncementID">
-   <%Announcement ann=new AnnouncementProxy().getAnnouncement();%>		
-		<%String[] id=ann.seeAnnID(1);
-		for(int i=0; i<id.length; i++){
-		out.println("<option value="+id[i]+">"+id[i]+"</option>" );
-		}%>
-   </select>
-
-<br>
-
-    <button type="submit">Delete</button>
-
-</form>
-
-
+<br><br><br><br>
+	<form  action="DelAnn2.jsp" class="innerForm" style="background-color: LightGray; color:teal;">
+		<%
+		Task b=new TaskProxy().getTask();
+		String email = session.getAttribute("userEmail").toString();
+		String c=b.getUserID(email);
+		int input=Integer.parseInt(c);
+		out.println("Your Available Group's IDs:  " );
+		GroupID g=new GroupIDProxy().getGroupID();
+		String[] gID =g.getGroupID(input);
+		for(int i=0; i<gID.length; i++){
+		out.println( "<br>"+gID[i] );
+		}
+		
+		%>
+		<table>
+			<tr>
+  			 <th> <b>GroupID: </b></th>
+  		  <th><input type="text" name="Del"></th>
+		</tr>	
+		</table>
+		
+  <button type="submit">View</button>
+	</form>	
+	
 
 </body>
 </html>

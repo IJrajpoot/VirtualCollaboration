@@ -34,7 +34,14 @@
 		Groups a=new GroupsProxy().getGroups();
 		%>		
 		<%
-		String[] req = a.existingGroups(1);
+		Task b=new TaskProxy().getTask();
+		String email = session.getAttribute("userEmail").toString();
+		String c=b.getUserID(email);
+		int input=Integer.parseInt(c);
+		
+		
+		out.println("Your Email:"+email);
+		String[] req = a.existingGroups(input);
 		for(int i=0; i<req.length; i++){
 		out.println("<hr><br>" + req[i]);
 		}

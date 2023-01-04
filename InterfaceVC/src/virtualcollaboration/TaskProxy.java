@@ -50,6 +50,30 @@ public class TaskProxy implements virtualcollaboration.Task {
     return task.addTask(task0, date, time, groupID);
   }
   
+  public java.lang.String rejectTask(int taskID) throws java.rmi.RemoteException{
+    if (task == null)
+      _initTaskProxy();
+    return task.rejectTask(taskID);
+  }
+  
+  public java.lang.String getTaskID(int groupID) throws java.rmi.RemoteException{
+    if (task == null)
+      _initTaskProxy();
+    return task.getTaskID(groupID);
+  }
+  
+  public java.lang.String getUserID(java.lang.String email) throws java.rmi.RemoteException{
+    if (task == null)
+      _initTaskProxy();
+    return task.getUserID(email);
+  }
+  
+  public java.lang.String[] userApproval(int userID) throws java.rmi.RemoteException{
+    if (task == null)
+      _initTaskProxy();
+    return task.userApproval(userID);
+  }
+  
   public java.lang.String addSpTask(java.lang.String task0, java.lang.String date, java.lang.String time, java.lang.String email) throws java.rmi.RemoteException{
     if (task == null)
       _initTaskProxy();
@@ -60,30 +84,6 @@ public class TaskProxy implements virtualcollaboration.Task {
     if (task == null)
       _initTaskProxy();
     return task.delTask(taskID);
-  }
-  
-  public java.lang.String[] userApproval(int userID) throws java.rmi.RemoteException{
-    if (task == null)
-      _initTaskProxy();
-    return task.userApproval(userID);
-  }
-  
-  public java.lang.String getUserID(java.lang.String email) throws java.rmi.RemoteException{
-    if (task == null)
-      _initTaskProxy();
-    return task.getUserID(email);
-  }
-  
-  public java.lang.String getTaskID(int userID) throws java.rmi.RemoteException{
-    if (task == null)
-      _initTaskProxy();
-    return task.getTaskID(userID);
-  }
-  
-  public java.lang.String rejectTask(int taskID) throws java.rmi.RemoteException{
-    if (task == null)
-      _initTaskProxy();
-    return task.rejectTask(taskID);
   }
   
   public java.lang.String[] seeTask(int groupID) throws java.rmi.RemoteException{

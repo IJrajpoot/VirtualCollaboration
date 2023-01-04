@@ -22,26 +22,35 @@
  }
  %>
  </div >
-  <h1>Provide Announcement ID to delete it.</h1>
+  <h1>Provide Task ID to delete it.</h1>
 <form action="DelTaskResult.jsp" class="myDiv">
- 
-   
-
-   <label style="text-align:left;"> <b>Announcement ID: </b></label>
-   <select id="taskID" name="taskID">
-   <%Task ann=new TaskProxy().getTask();%>		
-		<%String[] id=ann.seeTask(1);
+<%TaskID ann=new TaskIDProxy().getTaskID();%>
+ <% 
+ String id1=request.getParameter("DelTask");
+	int del=Integer.parseInt(id1);
+ out.println("Existing tasks of group::");
+		String[] req = ann.seeTask(del);
+		for(int i=0; i<req.length; i++){
+		out.println("<hr><br>" + req[i]);
+		}
+		%>
+<br><br><br>
+    <label style="text-align:left;"> <b>Task ID: </b></label>
+   <select id="TaskID" name="TaskID">
+   		
+		<%
+		
+		
+			
+		String[] id=ann.getTaskID(del);
 		for(int i=0; i<id.length; i++){
 		out.println("<option value="+id[i]+">"+id[i]+"</option>" );
 		}%>
    </select>
-
 <br>
 
     <button type="submit">Delete</button>
 
 </form>
-
-
 </body>
 </html>

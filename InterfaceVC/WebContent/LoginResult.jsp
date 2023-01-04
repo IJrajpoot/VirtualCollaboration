@@ -13,6 +13,9 @@ Login a=new LoginProxy().getLogin();
 String password=request.getParameter("password");
 String email=request.getParameter("email");
 boolean check=a.login(email, password);
+
+session.setAttribute("userEmail", email);
+
 if(email!="" && password!=""){
 	if(check){
 	response.sendRedirect("Home.jsp");

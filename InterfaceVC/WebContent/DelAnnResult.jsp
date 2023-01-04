@@ -12,6 +12,7 @@
 <%
 Announcement a=new AnnouncementProxy().getAnnouncement();
 String ID=request.getParameter("AnnouncementID");
+
 int gID=Integer.parseInt(ID);
 String sout=a.delAnnouncementt(gID);
 boolean check=(sout!=null);
